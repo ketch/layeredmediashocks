@@ -1,0 +1,19 @@
+\subsection{Numerical discretization\label{discretization}}
+Before continuing, we briefly describe the numerical methods used for the
+computations presented in this work.  The methods employed are both
+finite volume Godunov-type
+high-resolution methods, which employ Riemann solvers and nonlinear limiters
+to obtain good resolution of shocks or steep gradients without spurious
+oscillations.  
+
+The first method used is that implemented in Clawpack \cite{clawpack45}
+and described in \cite{leveque1997}.  Briefly, this is a second-order TVD
+high-resolution scheme based on Lax-Wendroff discretization with limiters.
+
+The second method used is that implemented in the SharpClaw software package
+\cite{sharpclaw} and described in \cite{ketcheson2006,ketcheson2011}.  
+This involves a method-of-lines
+discretization approach, using WENO reconstruction in space and high order
+Runge-Kutta time integration.  In all experiments with SharpClaw we use the
+fourth-order SSP Runge-Kutta scheme of \cite{ketcheson2008} and fifth-order 
+WENO reconstruction.

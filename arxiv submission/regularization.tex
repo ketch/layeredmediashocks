@@ -1,0 +1,67 @@
+It is clear, at least in the case of a piecewise homogeneous medium, 
+that at least some kinds of smooth initial data will lead to shocks,
+regardless of the material parameters.  For instance,
+if the initial data includes sufficiently large gradients, certain
+characteristics will intersect before they reach a material interface.
+In fact, for any fixed medium it is possible to construct initial data of
+arbitrarily small amplitude for which a shock forms in the solution.  To
+construct such data, choose a point $x_0$ so that $\sigma(\epsilon,x)$ is
+continuous in $x$ in an open neighborhood about $x_0$ and take data
+\begin{subequations} \label{ic1}
+\begin{align}
+\epsilon(x,-\tau) &= \begin{cases} \epsilon_0 &\text{for}~ x<x_0\\
+0 &\text{for}~ x\geq x_0, \end{cases}\\
+\noalign{\vskip 3pt}
+u(x,-\tau) &= \begin{cases} -\epsilon_0\sqrt{\frac{\sigma'(\epsilon_0)}{\rho(x_0)}}
+ &\text{for}~ x<x_0\\
+0 &\text{for}~ x\geq x_0 \end{cases}
+\end{align}
+\end{subequations}
+at some very small negative time $-\tau$ with $0<\tau\ll 1$.
+This data contains a jump discontinuity that spreads out as a 1-rarefaction
+wave, so that solving up to time $t=0$ gives smooth functions
+$\epsilon(x,0)$ and $u(x,0)$.  Now negate $u(x,0)$ and consider the
+resulting functions as data at $t=0$.  By time-reversibility, over the time
+$0\leq t\leq \tau$ the solution sharpens back into the discontinuity we
+started with, corresponding to shock formation.
+
+However, the fact that we can construct data resulting in shock waves 
+does not preclude the possibility that smooth solutions
+exist for all time for some restricted set of initial data.
+%, such as data with sufficiently small derivative everywhere.  
+
+%We have not succeeded in
+%proving conditions that guarantee smooth solutions for all time,
+%although the computational eveidence suggests that this is possible.
+
+%{\bf I think it may be possible to prove here a negative result that 
+%includes continuously varying media, along
+%the following lines: given any fixed medium, if we use a steep enough
+%initial condition, shocks will form after a short time.}
+
+
+
+Detecting the formation of shocks in computed solutions is challenging,
+since the computation produces only a finite number of values (cell-averages
+in the case of the finite volume methods used here) and in general
+it is impossible to determine if the solution is smooth based on these
+values.  In practice, one can only expect to obtain an upper-bound on the
+magnitude of possible discontinuities.
+In \cite{simpson2010}, visual detection of shocks in spectral solutions
+was conducted by looking for highly oscillatory regions near steep gradients
+(evidence of the Gibbs phenomenon).
+%since shocks represent discontinuities, which cannot be represented exactly
+%on a finite grid.  Thus, 
+%A sufficiently steep gradient is indistinguishable
+%from a shock on a finite grid.  By using a very fine computational
+%grid, one can potentially rule out the formation of shocks up to some high
+%precision.  
+Since the solutions we are interested in contain highly oscillatory regions
+and steep smooth regions, inspection of the solution may not be a reliable
+way to judge whether shocks have formed.  We propose a more robust and
+quantitative approach based on two
+signatures of shock formation.  The first, mentioned already in the 
+introduction, is the {\em loss of time-reversibility}.  The second is 
+{\em entropy decay}.  
+We now describe the design of experiments that can detect these
+signatures.

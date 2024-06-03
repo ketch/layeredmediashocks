@@ -1,0 +1,118 @@
+In this and the next section, we investigate by computation how general this
+phenomenon is.  Following up on the experiment of \cite{leveque2003},
+one may ask whether solitary waves are observed if some of the parameters are
+changed.  In this section we investigate whether similar results are obtained
+for other types of periodic media.
+
+\subsection{Smoothly varying media}
+We now consider the case of a smoothly varying medium, with
+\begin{subequations}
+\label{eq:sinmat}
+\begin{align}
+\rho(x) = & a + b \sin\left(2\pi \frac{x}{\delta}\right) \\
+K(x) = & a + b \sin\left(2\pi\left(\frac{x}{\delta}+\theta\right)\right)
+\end{align}
+\end{subequations}
+and exponential stress-strain relation \ref{expstress}.
+We first consider the case $\theta=0$, so that $K(x)=\rho(x)$ and thus
+the linearized sound speed is constant.  Taking $a=5/2$, $b=3/2$, we find solitary
+wave behavior similar to the piecewise constant case, as shown in Figure
+\ref{fig:sinoton}.  It can be shown that the coefficients of the dissipative
+terms in the homogenized equations vanish in this case.
+
+Numerical tests of time-reversibility and entropy evolution also seem
+to indicate that shocks do not form, just as in the piecewise-constant
+medium case.  If the amplitude of the impedance variation is reduced
+sufficiently, shocks are observed to form and the solitary waves are
+replaced by incoherent fluctuations.
+\begin{figure}
+\begin{center}
+\subfigure{\includegraphics[width=3.5in]{figures/sinoton_zoomout.eps}}
+\subfigure{\includegraphics[width=3.5in]{figures/sinoton_closeup.eps}}
+\subfigure{\includegraphics[width=3.5in]{figures/sinoton_params.eps}}
+\caption{Results for the medium \eqref{eq:sinmat} with $\theta=0$. \label{fig:sinoton}}
+\end{center}
+\end{figure}
+
+Next we take $\theta=1/2$, so that the fluctuations in the density and the
+bulk modulus are precisely out of phase (and thus the linearized sound speed 
+varies dramatically).  Again, it can be shown that the coefficients of the 
+dissipative terms in the homogenized equations vanish in this case.  However, the 
+observed behavior (shown in Figure \ref{fig:oop}) is quite different from 
+the previous example.  Now the
+solution evolves in a manner similar to Burgers equation, with the nonlinearity
+dominating.  The dispersion, rather than leading to solitary waves, appears only
+to generate noise-like oscillations.
+
+\begin{figure}
+\begin{center}
+\subfigure{\includegraphics[width=3.5in]{figures/oop.eps}}
+\subfigure{\includegraphics[width=3.5in]{figures/oop_stress.eps}}
+\subfigure{\includegraphics[width=3.5in]{figures/oop_params.eps}}
+\caption{Strain (left) and stress (right) for the medium \eqref{eq:sinmat} with $\theta=1/2$. \label{fig:oop}}
+\end{center}
+\end{figure}
+
+%Now we consider the case $\theta=1/4$.  In this case, the coefficients
+%of the dissipative homogenized terms are nonzero.  Solitary waves are
+%observed, but there is a lot of 'junk' between and behind them, and the leading
+%one has two peaks.
+%
+%\begin{figure}
+%\begin{center}
+%\subfigure{\includegraphics[width=3.5in]{figures/hop.eps}}
+%\subfigure{\includegraphics[width=3.5in]{figures/hop_stress.eps}}
+%\subfigure{\includegraphics[width=3.5in]{figures/hop_params.eps}}
+%\caption{Strain (left) and stress (right) for the medium \eqref{eq:sinmat} with $\theta=1/4$. \label{fig:hop}}
+%\end{center}
+%\end{figure}
+%
+%Finally, consider the case $\theta=0$ but with the period of the density
+%variation doubled (while the bulk modulus variation remains the same).
+%In this case, dispersion seems to dominate and little coherent structure
+%remains after even a short time.
+%
+%\begin{figure}
+%\begin{center}
+%\subfigure{\includegraphics[width=3.5in]{figures/dp.eps}}
+%\subfigure{\includegraphics[width=3.5in]{figures/dp_stress.eps}}
+%\subfigure{\includegraphics[width=3.5in]{figures/dp_params.eps}}
+%\caption{Strain (left) and stress (right) for the medium \eqref{eq:sinmat} with $\theta=0$ and the period of the density variation equal to twice the period of the bulk modulus variation. \label{fig:dp}}
+%\end{center}
+%\end{figure}
+
+
+
+\subsection{Randomly perturbed media}
+In this section we consider the effect of random defects in the media.
+Our goal is to assess how sensitive regularization and solitary wave 
+formation are to the precise periodic nature of the medium.  This may
+be important in efforts to experimentally realize these waves.
+
+\subsubsection{Perturbed interface locations}
+  We consider an LY medium but with $\alpha$ in layer $i$ given by
+  \[\tilde{\alpha}_i = \frac{1}{2}(1+\mu \gamma_i)\]
+  where the $\gamma_i$ are taken from a random Gaussian distribution
+  with unit standard deviation.  We consider two cases: $\mu=0.01$
+  and $\mu=0.1$.  Results are shown in figure \Fig{randint}.
+
+  \begin{figure}  \subfigure[Perturbed by 1\%]{\includegraphics[width=3in]{figures/random_steg_1percent.png}}
+  \subfigure[Perturbed by 10\%]{\includegraphics[width=3in]{figures/random_steg_10percent.png}}
+  \caption{Effect of perturbing interface locations.\label{fig:randint}}
+  \end{figure}
+
+\subsubsection{Perturbed material parameters}
+  We consider an LY medium but with $K_B$ in layer $i$ given by
+  \[\tilde{K}_{B,i} = 4(1+\mu \gamma_i)\]
+  where the $\gamma_i$ are taken from a random Gaussian distribution
+  with unit standard deviation.  We consider two cases: $\mu=0.01$
+  and $\mu=0.25$.  Results are shown in figure \Fig{randK}.  The
+  coherence of the solitary waves appears to be less sensitive to
+  this type of perturbations.
+
+  \begin{figure}  \subfigure[Perturbed by 1\%]{\includegraphics[width=3in]{figures/random_steg_val_1percent.png}}
+  \subfigure[Perturbed by 25\%]{\includegraphics[width=3in]{figures/random_steg_val_25percent.png}}
+  \caption{Effect of perturbing bulk modulus values uniformly in each layer.\label{fig:randK}}
+  \end{figure}
+
+

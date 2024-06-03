@@ -1,0 +1,12 @@
+tr_beforeshock: Solve forward to a time before shock forms, negate velocity, and solve back to initial time.  Homogeneous nonlinear medium. Stress and velocity are plotted.
+
+tr_aftershock: Solve forward to a time after shock forms, negate velocity, and solve back to initial time.  Homogeneous nonlinear medium. Stress and velocity are plotted.
+
+tr_animation_Z2: Stegoton problem, but in a medium with impedance contrast of only Z_B/Z_A = 2.  Stress and velocity are plotted.
+
+entropy_animation_Z2: Stegoton problem, but in a medium with impedance contrast of only Z_B/Z_A = 2.  Stress and entropy (versus time) are plotted.
+
+entropy_animation_Z1: Stress and entropy (versus time) are plotted, for a homogeneous medium.
+
+tr_animation_Z4: Original stegoton problem, with Z_B/Z_A = 4.  Stress and velocity are plotted.
+

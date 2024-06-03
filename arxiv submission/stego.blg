@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99c (TeX Live 2009)
+The top-level auxiliary file: stego.aux
+The style file: siam.bst
+Database file #1: stego.bib
+Warning--empty chapter and pages in alghamdipetclaw
+Warning--empty note in ketcheson2011
+Warning--empty journal in simpson2010
+"" can't start a style-file command---line 1039 of file siam.bst
+ : 
+ : 
+(Error may have been on previous line)
+You've used 12 entries,
+            2030 wiz_defined-function locations,
+            567 strings with 5551 characters,
+and the built_in function-call counts, 4053 in all, are:
+= -- 391
+> -- 162
+< -- 0
++ -- 64
+- -- 52
+* -- 293
+:= -- 616
+add.period$ -- 14
+call.type$ -- 12
+change.case$ -- 61
+chr.to.int$ -- 0
+cite$ -- 15
+duplicate$ -- 196
+empty$ -- 309
+format.name$ -- 52
+if$ -- 873
+int.to.chr$ -- 0
+int.to.str$ -- 12
+missing$ -- 10
+newline$ -- 41
+num.names$ -- 24
+pop$ -- 67
+preamble$ -- 1
+purify$ -- 50
+quote$ -- 0
+skip$ -- 176
+stack$ -- 0
+substring$ -- 265
+swap$ -- 88
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 46
+warning$ -- 3
+while$ -- 41
+width$ -- 14
+write$ -- 105
+(There was 1 error message)

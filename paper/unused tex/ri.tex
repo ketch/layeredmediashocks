@@ -1,0 +1,156 @@
+To third order, the homogenized equations are:
+\begin{subequations} \label{homeq} \begin{align}
+\rhomean u_t = & \sigma_x - \delta C_{21}\sigma_{xx} 
+  - \delta^2 C_{22} \sigma_{xxx} \\
+\frac{1}{\Kmean}\sigma_t = & G(\sigma)u_x - \delta C_{11} G(\sigma) u_{xx}
+  - \delta^2 C_{12} G(\sigma)u_{xxx} 
+  - \delta^2 C_{13}\left(G'(\sigma)\sigma_x u_{xx} +\frac{1}{2}G''(\sigma)
+  \sigma_x^2 u_x\right)
+\end{align} \end{subequations} 
+
+Leveque \& Yong \cite{leveque2002a} observed that the
+stegotons appear to be related to the Riemann invariants of the 
+system \eqref{nel_pde}, with the averaged parameters
+(i.e., $\rho(x)=\rhomean$ and $\sigma(\epsilon(x,t),,x)=\exp(\Kmean\epsilon)-1$).
+The Riemann invariants for this system are
+\begin{subequations}
+\begin{align}
+w^1 = & \rho u - \frac{2}{\cmean}\sqrt{\sigma+1}\\
+w^2 = & \rho u + \frac{2}{\cmean}\sqrt{\sigma+1}
+\end{align}
+\end{subequations}
+
+It is observed in \cite{leveque2002a} that $w^1$ is essentially constant
+for right-going stegotons, while $w^2$ is essentially constant for left-going
+stegotons.  In other words, these stegotons are essentially simple wave solutions
+to the homogenized first-order system:
+\begin{subequations} \label{nel_pde_mean}
+\begin{align}
+\epsilon_t(x,t)-u_x(x,t) & = 0 \\
+(\rhomean u(x,t))_t - \exp(\Kmean\epsilon(x,t))_x & = 0 
+\end{align}
+\end{subequations}
+
+For stegotons, $u$ and $\sigma$ vanish as $|x|\to\infty$, so if
+$w^2$ or $w^1$ is constant (for a right-going stegoton), then 
+%$w^2=2\sqrt{\rhomean/\Kmean}$, so
+\be \label{ri_relation}
+u = \pm \frac{2}{\Zmean}(1-\sqrt{\sigma+1}),
+\ee
+where the plus (minus) sign corresponds to right- (left-) going stegotons.
+If we substitute the relation \eqref{ri_relation} 
+into the homogenized equations \eqref{homeq}, we get (to third order)
+\begin{subequations} \label{oweq}
+\begin{align} \label{oweqa}
+\frac{1}{\cmean}u_t = & \sqrt{\sigma+1} u_x
+   - \delta C_{21}\left(\sqrt{\sigma+1}u_{xx}+\frac{\Zmean}{2}u_x^2\right)
+   - \delta^2 C_{22}\left(\sqrt{\sigma+1}u_{xxx}+\frac{3}{2}\Zmean u_x u_{xx}\right), \\
+\frac{1}{\cmean}u_t = & \sqrt{\sigma+1} u_x 
+   - \delta C_{11} \sqrt{\sigma+1}u_{xx}
+   - \delta^2\left(C_{12}\sqrt{\sigma+1}u_{xxx}+C_{13}\Zmean u_x u_{xx}\right).
+\label{oweqb}
+\end{align}
+\end{subequations}
+Observe that \eqref{oweqa} and \eqref{oweqb} are equivalent if 
+$C_{11}=C_{21}=0$
+and $C_{12}=C_{22}=\frac{2}{3}C_{13}$.  The first condition is fulfilled
+for any piecewise constant medium, as well as for the sinusoidal media
+considered herein.  For a piecewise-constant, two-material medium, the 
+condition $C_{12}=C_{22}$ is always satisfied if we take $\alpha=1/2$
+(that is, if the half-layers of material A and material B have the same 
+width).  Remarkably, these conditions correspond precisely to the case
+considered in detail by LeVeque \& Yong.  The final condition,
+$C_{22}=\frac{2}{3}C_{13}$, turns out to be impossible to satisfy
+for a medium satisfying the first two.
+
+For $C_{11}=C_{21}=0$, \eqref{oweq} reduces to
+\begin{subequations}
+\begin{align} \label{oweqa}
+\frac{1}{\cmean}u_t = & \left(1\pm \frac{\Zmean}{2}u\right) u_x
+   - \delta^2 C_{22}\left(\left(1\pm \frac{\Zmean}{2}u\right)u_{xxx}+\frac{3}{2}\Zmean u_x u_{xx}\right), \\
+\frac{1}{\cmean}u_t = & \left(1\pm \frac{\Zmean}{2}u\right) u_x 
+   - \delta^2\left(C_{12}\left(1\pm \frac{\Zmean}{2}u\right)u_{xxx}+C_{13}\Zmean u_x u_{xx}\right).
+\label{oweqb}
+\end{align}
+\end{subequations}
+Taking the plus sign and setting $v=1+u\Zmean/2$, these reduce to
+\begin{subequations}
+\begin{align} \label{veqa}
+\frac{1}{\cmean}v_t = & v v_x
+   - \delta^2 C_{22}\left(vv_{xxx}+\frac{3}{2}\Zmean v_x v_{xx}\right), \\
+\frac{1}{\cmean}v_t = & v v_x 
+   - \delta^2\left(C_{12}vv_{xxx}+C_{13}\Zmean v_x v_{xx}\right).
+\end{align}
+\end{subequations}
+The case studied by LeVeque \& Yong has $\Zmean=2$.  This turns out
+to be a very special value; in this case,
+the quantity in parentheses in \eqref{veqa} is
+a total derivative and \eqref{veqa} can be written as
+\be
+v_t = \frac{\cmean}{2} \left(v^2\right)_x 
+        - \frac{\cmean}{2}\delta^2 C_{22} \left(v^2\right)_{xxx}
+\ee
+This is just the K(2,2) compacton equation, first studied by Rosenau \&
+Hyman \cite{rosenau1993}.  However, note that the boundary conditions
+here are $v\to 1$ as $|x|\to\infty$, which precludes compacton solutions.
+Instead, the equation has 'shelf soliton' solutions, as noted in 
+\cite{rosenau1993}.  To see this, we look for traveling wave solutions
+of the form $v(x,t)=V(x-\lambda t)$.  This gives (setting $b=-\delta^2 C_{22}$)
+\be
+-\lambda V' = \frac{\cmean}{2}(V^2)' + b\frac{\cmean}{2}(V^2)'''.
+\ee
+Integrate once to find
+\be
+-\lambda V  = \frac{\cmean}{2}V^2  + b\frac{\cmean}{2}(V^2)'' + P_1.
+\ee
+The conditions $V(\pm\infty)=1, V'(\pm\infty)=0$ yields 
+$P_1=-\lambda-\frac{\cmean}{2}$, giving
+\be
+-\lambda V  = \frac{\cmean}{2}V^2  + b\frac{\cmean}{2}(V^2)'' - \lambda -\frac{\cmean}{2}.
+\ee
+Now we multiply by $VV'$:
+\be
+-\lambda V^2 V'  = \frac{\cmean}{2}V^3 V'  + b\frac{\cmean}{2}(V^2)''VV' - \left(\lambda -\frac{\cmean}{2}\right)VV',
+\ee
+and integrate again to obtain
+\be
+-\frac{\lambda}{3} V^3 = \frac{\cmean}{8}V^4 + b\frac{\cmean}{2}(VV')^2 - \left(\lambda -\frac{\cmean}{2}\right)\frac{1}{2}V^2 + P_0.
+\ee
+Applying the boundary conditions at infinity yields 
+$P_0=-\frac{3}{8}\cmean + \frac{1}{6}\lambda$.  Dividing by $V^2$, we have
+\be
+-\frac{\lambda}{3} V = \frac{\cmean}{8}V^2 + b\frac{\cmean}{2}V'^2 
+    - \frac{1}{2}\left(\lambda -\frac{\cmean}{2}\right) + V^{-2}\left(-\frac{3}{8}\cmean + \frac{1}{6}\lambda\right)
+\ee
+which simplifies to
+\be \label{eq26}
+V'^2 = \frac{1}{b}\left(\frac{\lambda}{\cmean} -\frac{1}{2}\right)
+    - \frac{2}{3}\frac{\lambda}{b\cmean}V - \frac{1}{4b}V^2 
+    - \frac{1}{b}\frac{1}{V^2}\left(\frac{\lambda}{3\cmean}-\frac{3}{4}\right).
+\ee
+The solutions of \eqref{eq26} are elliptic functions; in the special case
+$\lambda=\frac{9}{4}\cmean$, they are trigonometric:
+\be
+V(\xi)=-3\pm 4\sin\left(\frac{\theta-\xi}{\sqrt{b}}\right).
+\ee
+
+%In other words, the pair of equations nearly collapse to a single equation
+%(to a good approximation) when the Riemann invariant is assumed constant.
+%If we instead impose \eqref{ri_relation} with the minus sign, we get the
+%same result, but with $x \iff -x$.  For general coefficients, and setting
+%$v=u+1$, the equation takes the form
+%\be
+%v_t = a v v_x + b(3v_xv_{xx} + vv_{xxx})
+%\ee
+
+%For the case studied in \cite{leveque2003},
+%\begin{subequations} \label{mean_params}
+%\begin{align}
+%\rhomean = & \frac{5}{2}, & \Kmean = & \frac{8}{5}.
+%\end{align}
+%\end{subequations}
+%Hence we have the relations
+%\be \label{ri_relation}
+%\sigma+1 = (1\pm u)^2,
+%\ee
+

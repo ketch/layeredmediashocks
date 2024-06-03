@@ -1,0 +1,283 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      9427,        273]
+NotebookOptionsPosition[      8359,        232]
+NotebookOutlinePosition[      8700,        247]
+CellTagsIndexPosition[      8657,        244]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"sig", "[", 
+    RowBox[{"x_", ",", "a_"}], "]"}], ":=", 
+   RowBox[{"a", "*", 
+    RowBox[{"Exp", "[", 
+     RowBox[{"-", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"x", "/", "10"}], ")"}], "^", "2"}]}], "]"}]}]}], ";", " ", 
+  RowBox[{"PrintPrecision", ":=", "10"}]}]], "Input",
+ CellChangeTimes->{{3.499397502105373*^9, 3.499397502903922*^9}, {
+  3.4994001555844584`*^9, 3.499400170069975*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDelayed", "::", "\<\"wrsym\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"Symbol \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(PrintPrecision\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" is \
+Protected.\\\\\\\"\\\", \\\"MT\\\"]\\) \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/wrsym\\\", \
+ButtonNote -> \\\"SetDelayed::wrsym\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.4994001713167267`*^9}],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.499400171317923*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sigtot", "[", 
+   RowBox[{"a_", ",", "K1_", ",", "K2_"}], "]"}], ":=", 
+  RowBox[{"NIntegrate", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"sig", "[", 
+         RowBox[{"x", ",", "a"}], "]"}], "/", "K1"}], "+", 
+       RowBox[{
+        RowBox[{"sig", "[", 
+         RowBox[{"x", ",", "a"}], "]"}], "/", "K2"}], "-", 
+       RowBox[{
+        RowBox[{"Log", "[", 
+         RowBox[{
+          RowBox[{"sig", "[", 
+           RowBox[{"x", ",", "a"}], "]"}], "+", "1"}], "]"}], "/", "K1"}], 
+       "-", 
+       RowBox[{
+        RowBox[{"Log", "[", 
+         RowBox[{
+          RowBox[{"sig", "[", 
+           RowBox[{"x", ",", "a"}], "]"}], "+", "1"}], "]"}], "/", "K2"}]}], 
+      ")"}], "/", "2"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", 
+      RowBox[{"-", "\[Infinity]"}], ",", "\[Infinity]"}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.499396889501589*^9, 3.499396911428154*^9}, {
+  3.4993975160811157`*^9, 3.499397527056816*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mysigtot", "[", "a_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"sigtot", "[", 
+    RowBox[{"a", ",", "1", ",", "4"}], "]"}], "-", "4."}]}]], "Input",
+ CellChangeTimes->{{3.499396915340263*^9, 3.49939692698601*^9}, {
+   3.4993971731107187`*^9, 3.499397215188609*^9}, 3.4993976958294888`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"amp", ":=", 
+   RowBox[{"FindRoot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"sigtot", "[", 
+       RowBox[{"a", ",", "1", ",", "3.0"}], "]"}], "\[Equal]", "4"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"a", ",", "1.0", ",", "1.1"}], "}"}]}], "]"}]}], ";", " ", 
+  RowBox[{"NumberForm", "[", 
+   RowBox[{"amp", ",", "15"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.4993969510579767`*^9, 3.499397014152885*^9}, {
+  3.499397066168983*^9, 3.499397069319551*^9}, {3.499397118511902*^9, 
+  3.49939715150217*^9}, {3.499397198142851*^9, 3.4993972200525208`*^9}, {
+  3.4993976012874002`*^9, 3.4993976057417097`*^9}, {3.4993976622234287`*^9, 
+  3.499397665476759*^9}, {3.499397759636718*^9, 3.499397759986805*^9}, {
+  3.4993978137791452`*^9, 3.499397818089425*^9}, {3.499397936552051*^9, 
+  3.499397946071395*^9}, {3.499397977383172*^9, 3.499397983062632*^9}, {
+  3.499400017410284*^9, 3.4994000179451838`*^9}, {3.499400080487913*^9, 
+  3.499400105263242*^9}, {3.49940022071107*^9, 3.499400232484766*^9}, {
+  3.499400308853468*^9, 3.499400379082852*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NIntegrate", "::", "\<\"inumr\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"The integrand \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(1\\/2\\\\ \
+\\(\\((\\(\\(1.3333333333333333`\\\\ a\\\\ \
+\[ExponentialE]\\^\\(-\\(\\(x\\^2\\/100\\)\\)\\)\\)\\) - \
+\\(\\(1.3333333333333333`\\\\ \\(\\(Log[\\(\\(1 + \\(\\(a\\\\ \[ExponentialE]\
+\\^\\(Times[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\)\\)\\)\\)]\\)\\)\\)\\))\\)\\)\\), \\\"MT\\\"]\\)\
+\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" has evaluated to non-numerical \
+values for all sampling points in the region with boundaries \\\\\\\"\\\", \\\
+\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\({\\({\[Infinity], 0.`}\\)}\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\".\\\\\\\"\\\", \\\"MT\\\
+\"]\\) \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/NIntegrate/inumr\\\", ButtonNote -> \
+\\\"NIntegrate::inumr\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{
+  3.499400054241704*^9, {3.499400092523987*^9, 3.499400105800949*^9}, 
+   3.499400234361801*^9, {3.4994003105450706`*^9, 3.499400379964226*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"{", 
+   RowBox[{"a", "\[Rule]", 
+    InterpretationBox["\<\"1.246215825492\"\>",
+     1.2462158254919984`,
+     AutoDelete->True]}], "}"}],
+  NumberForm[#, 15]& ]], "Output",
+ CellChangeTimes->{{3.499396978092854*^9, 3.499397016263502*^9}, 
+   3.499397070620599*^9, 3.4993971199474983`*^9, 3.499397152215005*^9, {
+   3.499397202885913*^9, 3.499397220645646*^9}, 3.499397547066408*^9, 
+   3.499397606455058*^9, 3.4993976660169086`*^9, 3.499397699493538*^9, 
+   3.499397764914723*^9, 3.499397819357769*^9, 3.499397947445456*^9, 
+   3.499397984316429*^9, {3.499400018973709*^9, 3.4994000542743597`*^9}, {
+   3.499400092541662*^9, 3.499400105818315*^9}, 3.4994002343955507`*^9, {
+   3.499400310577903*^9, 3.49940037999772*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"sigtot", "[", 
+  RowBox[{"1.29638", ",", "1.", ",", "4."}], "]"}]], "Input",
+ CellChangeTimes->{{3.4993970202278967`*^9, 3.499397059367413*^9}, {
+  3.4993972348054333`*^9, 3.4993972759716253`*^9}, {3.499397534296349*^9, 
+  3.499397534470739*^9}, {3.49940003025003*^9, 3.4994000322408524`*^9}}],
+
+Cell[BoxData["4.0000055893806445`"], "Output",
+ CellChangeTimes->{{3.499397240165143*^9, 3.4993973006257353`*^9}, 
+   3.499397459688633*^9, {3.4993975316862803`*^9, 3.499397535001916*^9}, 
+   3.499397704360323*^9, 3.49940003335043*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", 
+  RowBox[{"a", ",", "K1", ",", "K2", ",", "sig"}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.499397033188057*^9, {3.499397432025879*^9, 3.4993974478001757`*^9}, {
+   3.499397508191535*^9, 3.4993975087188*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mysigtot", "[", "1.25", "]"}]], "Input",
+ CellChangeTimes->{{3.4993974742277946`*^9, 3.4993974772317266`*^9}, {
+  3.499397559847763*^9, 3.4993975839981318`*^9}, {3.499397711669159*^9, 
+  3.499397712067724*^9}}],
+
+Cell[BoxData[
+ RowBox[{"-", "0.23131809857851637`"}]], "Output",
+ CellChangeTimes->{{3.499397580715555*^9, 3.499397584713051*^9}, 
+   3.499397618192834*^9, {3.499397707125971*^9, 3.499397712723343*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindRoot", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"3", 
+     RowBox[{"sigtot", "[", 
+      RowBox[{"x", ",", "1"}], "]"}]}], "\[Equal]", "1."}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.4993976561965847`*^9, {3.499397802514862*^9, 3.499397804633691*^9}, {
+   3.4993978531861773`*^9, 3.499397919665929*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"x", "\[Rule]", 
+   RowBox[{"-", "10.481470739682049`"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.4993976571809587`*^9, 3.4993978051490707`*^9, {3.4993978720195627`*^9, 
+   3.49939791303482*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["a"], "Input",
+ CellChangeTimes->{3.4994001133638678`*^9}],
+
+Cell[BoxData["a"], "Output",
+ CellChangeTimes->{3.499400113963806*^9}]
+}, Open  ]]
+},
+WindowSize->{640, 750},
+WindowMargins->{{Automatic, 58}, {Automatic, 188}},
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 453, 13, 27, "Input"],
+Cell[1023, 37, 590, 11, 23, "Message"],
+Cell[1616, 50, 76, 1, 27, "Output"]
+}, Open  ]],
+Cell[1707, 54, 1040, 32, 73, "Input"],
+Cell[2750, 88, 320, 7, 27, "Input"],
+Cell[CellGroupData[{
+Cell[3095, 99, 1085, 21, 43, "Input"],
+Cell[4183, 122, 1231, 21, 115, "Message"],
+Cell[5417, 145, 757, 15, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6211, 165, 317, 5, 27, "Input"],
+Cell[6531, 172, 235, 3, 27, "Output"]
+}, Open  ]],
+Cell[6781, 178, 246, 5, 27, "Input"],
+Cell[CellGroupData[{
+Cell[7052, 187, 234, 4, 27, "Input"],
+Cell[7289, 193, 202, 3, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7528, 201, 393, 11, 27, "Input"],
+Cell[7924, 214, 238, 6, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8199, 225, 71, 1, 27, "Input"],
+Cell[8273, 228, 70, 1, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

@@ -1,0 +1,95 @@
+\documentclass{cmslatex}
+\pdfoutput=1
+\usepackage{pst-pdf}
+\usepackage{amsmath,amsfonts}
+\usepackage{subfigure}
+\graphicspath{{./}{figs/}}
+\usepackage{graphicx}
+\usepackage{psfrag}
+\usepackage{dcolumn}
+\usepackage{rotating}
+\usepackage{xspace}
+\usepackage{url}
+\usepackage{upgreek}
+\usepackage{multicol}
+\usepackage{pict2e,slashbox,multirow}
+\usepackage{verbatim}
+\usepackage[hmargin=1.0in]{geometry}
+\usepackage{yhmath}
+%\usepackage[integrals]{wasysym}
+
+
+\begin{document}
+\title{Shock Dynamics in Layered Periodic Media}
+
+\author{%
+  David I. Ketcheson\thanks{Mathematical and Computer Sciences Division, King Abdullah University of Science and
+    Technology, 4700 KAUST, Thuwal 23955, Saudi Arabia.
+   (\protect\url{david.ketcheson@kaust.edu.sa})} \and
+    Randall J. LeVeque\thanks{Department of Applied Mathematics, University of Washington, Box 352420, Seattle, WA 98195-2420.
+   (\mbox{rjl@uw.edu}) }}
+
+\maketitle
+
+\bibliographystyle{siam}
+
+\begin{abstract}
+Solutions of constant-coefficient nonlinear hyperbolic PDEs generically 
+develop shocks, even if the initial data is smooth.  Solutions of hyperbolic
+PDEs with variable coefficients can behave very differently.
+We investigate formation and stability of shock waves in a one-dimensional 
+periodic layered medium by computational study of time-reversibility and entropy 
+evolution.
+We find that periodic layered media tend to inhibit shock formation.
+For small initial conditions and large impedance variation, 
+no shock formation is detected even
+after times much greater than the time of shock formation in a homogeneous
+medium.  Furthermore, weak shocks are observed to be dynamically unstable in
+the sense that they do not lead to significant long-term entropy decay.
+%Stronger shocks are observed to travel at a modified 
+%velocity related to what may be considered as effective jump conditions.
+We propose a characteristic condition for admissibility of shocks in heterogeneous
+media that generalizes the classical Lax entropy condition
+and accurately predicts the formation or absence of shocks in these media.
+\end{abstract}
+
+\begin{keywords}
+shock waves, periodic media, dispersive shocks, solitary waves
+\smallskip
+
+{\bf 35L02,35L67,74E15,65M08,37K40}
+\end{keywords}
+
+
+\pagestyle{myheadings}
+\thispagestyle{plain}
+\markboth{D. I. Ketcheson and R. J. LeVeque}{Shock dynamics in periodic media}
+%============================================================
+%Define macros, environments, etc.
+\input{macros}
+%============================================================
+
+\section{Introduction\label{intro}}
+\input{intro}
+
+%\section{Effective Medium Description}
+%  \input{homogenized}
+%%  \subsection{Riemann invariants}
+%%    \input{ri}
+
+\section{Computational Measures of Shock Formation\label{measures}}
+  \input{regularization}
+  \subsection{Time Reversal}
+    \input{timereversal}
+  \subsection{Entropy Evolution}
+    \input{entropy}
+
+\section{A Condition for Shock Formation in Heterogeneous Media\label{criterion}}
+    \input{criterion}
+
+\section{Discussion\label{discussion}}
+  \input{conclusions}
+
+\bibliography{stego}
+
+\end{document}

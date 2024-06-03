@@ -1,0 +1,167 @@
+One interesting feature of the stegotons is that they are always observed
+to travel faster than the homogenized sound speed of the medium.
+I have been able to explain this property by analysis of a simplified 
+system of homogenized equations.  
+
+By considering a layered medium with two alternating materials and
+introducing as a small parameter $\delta$ the layer thickness, one can derive
+effective homogenized equations, to any order in $\delta$.  The 
+homogenized equations are written in terms of $\sigma$ and $u$, since
+these variables are continuous across material interfaces (whereas 
+$\epsilon,\rho u$ are not).  By computational
+experiment, I have found that the qualitative behavior of the system
+can be reproduced by considering the zeroth-order equations plus one of
+the next order terms.  For a simple exponential stress-strain relation,
+these are
+\begin{subequations}
+\label{homsimp}
+\begin{align}
+\sigma_t-(\sigma+1)\hat{K}u_x & = -(\sigma+1)\hat{K}Cu_{xxx} \\
+\hat{\rho} u_t - \sigma_x & = 0.
+\end{align}
+\end{subequations}
+Here the quantities with hats are effective homogenized parameters
+and $C$ is the parameter $C_{12}$ from \cite{leveque2003}.
+The terms on the left correspond to the original equations with 
+homogenized coefficients.  Even this system with just one additional
+term supports solitary waves.  To see this, we use a traveling wave
+ansatz: 
+\begin{subequations}
+\begin{align}
+u(x,t) = & U(x-Vt) \\
+(\sigma(x,t)+1) = & W(x-Vt).
+\end{align}
+\end{subequations}
+Here $V$ is a constant velocity.  Substituting these into (\ref{homsimp})
+gives (dropping the hats for simplicity)
+\begin{subequations}
+\begin{align}
+-VW' & = K(WU'-CWU''') \\
+-\rho V U' & = W'.
+\end{align}
+\end{subequations}
+Using the second equation we can eliminate $U$ in the first to obtain
+\begin{subequations}
+\begin{align}
+W' & = \frac{K}{\rho V^2}(WW'-CWW''')
+\end{align}
+\end{subequations}
+Since
+\begin{subequations}
+\begin{align}
+WW' & = \left(\frac{1}{2}W^2\right)' \\
+WW''' & = (WW'')' - W'W'' = \left(WW''-\frac{1}{2}W'^2\right)',
+\end{align}
+\end{subequations}
+we can integrate by parts to obtain (defining $\alpha = \frac{K}{\rho V^2}$)
+$$
+W = \alpha \left( \frac{1}{2}W^2 - C\left(WW''-\frac{1}{2}W'^2\right) \right) + \gamma
+$$
+The constant of integration $\gamma$ is determined by the physical boundary
+conditions at $\infty$: $W\rightarrow 1, W'\rightarrow 0$.  This yields
+$$
+\gamma = 1-\frac{\alpha}{2}.
+$$
+Rearranging (and making the physically justified assumption $W\ne0$), we have
+$$
+W'' = \frac{W'^2}{2W} + \frac{W}{2C} - \frac{1}{\alpha C} \left(1 - \frac{2- \alpha}{2W}\right).
+$$
+This can be rewritten as a first order system by setting $w_1=W,w_2=W'$:
+\begin{subequations}
+\label{odes}
+\begin{align}
+w_1' & = w_2 \\
+w_2' & = \frac{w_2^2}{2w_1} + \frac{w_1}{2C} - \frac{1}{\alpha C} \left(1 -\frac{2-\alpha}{2w_1}\right).
+\end{align}
+\end{subequations}
+Setting $w_1'=w_2'=0$, we find that the equilibria of this system occur
+at $(1,0)$ and $(\frac{2-\alpha}{\alpha},0)$.
+The Jacobian of system (\ref{odes}) is
+\be
+J = \left( \begin{array}{cc}
+0 & 1 \\ \frac{w_2^2}{2w_1^2} + \frac{1}{2C} - \frac{2-\alpha}{2\alpha Cw_1^2} & \frac{w_2}{w_1}
+\end{array} \right)
+\ee
+
+
+The resulting system has two equilibria, the nature of which
+depends on the value of a single parameter, $M$.  This parameter turns out
+to be the mach number of the wave (i.e., its velocity divided by the
+homogenized sound speed).  If $M>1$, then
+one equilibrium point, which corresponds to physical boundary conditions
+at infinity, is a saddle, while the other is a center.  The system thus
+has a homoclinic connection, giving rise to solitary waves.  If $M<1$,
+the saddle point becomes a center, and vice versa.  In this case,
+the saddle point corresponds to unphysical boundary conditions (the
+corresponding solitary wave would have an infinite amount of energy),
+and no stegotons are observed (contrary to intuition based on their name,
+stegotons are supersonic!).  The nature of the phase plane for the
+two cases is shown in Figure \ref{fig:pptopo}.
+
+\begin{figure}
+\begin{pspicture}(0,0)(4,5)
+  \rput[c](2.5,4.5){$M>1$}
+  \psline[arrows=<->](0,2)(4,2)
+  \rput[c](4.25,2){{\color{black}{\small{$W$}}}}
+  \psline[arrows=<->](0.5,0)(0.5,4)
+  \rput[c](0.5,4.25){{\color{black}{\small{$W'$}}}}
+  \pscircle[fillstyle=solid,fillcolor=black,linestyle=dashed](2.75,2){0.1}
+  \pscircle[fillstyle=solid,fillcolor=black,linestyle=dashed](1.0,2){0.1}
+  \psline[linecolor=red,arrows=->,linearc=0.8,linewidth=.05](1.0,2.0)(2.5,3.0)(3.15,2.75)(3.5,2.)(3.15,1.25)(2.5,1.0)(1.0,2.0)
+  \rput[c](1.0,1.5){(1,0)}
+\end{pspicture}
+\hspace{1cm}
+\begin{pspicture}(0,0)(4,5)
+  \rput[c](2.5,4.5){$M<1$}
+  \psline[arrows=<->](0,2)(4,2)
+  \rput[c](4.25,2){{\color{black}{\small{$W$}}}}
+  \psline[arrows=<->](0.5,0)(0.5,4)
+  \rput[c](0.5,4.25){{\color{black}{\small{$W'$}}}}
+  \pscircle[fillstyle=solid,fillcolor=black,linestyle=dashed](1.0,2){0.1}
+  \pscircle[fillstyle=solid,fillcolor=black,linestyle=dashed](3.0,2){0.1}
+  \psline[linecolor=red,arrows=->,linearc=0.62,linewidth=.05](3.0,2.0)(1.5,3.0)(1.15,2.75)(0.65,2.)(1.15,1.25)(1.5,1.0)(3.0,2.0)
+\end{pspicture}
+\caption{Phase plane topology for stationary waves. \label{fig:pptopo}}
+\end{figure}
+
+By integrating higher-order versions of the homogenized equations
+(starting from a point very near the saddle), it is possible to 
+reproduce the shape and the amplitude-velocity relation of the stegotons as
+well.  My results from this agree very well with those of \cite{leveque2003}.
+A more interesting wave results from using a starting point well
+inside the homoclinic connection.  Since trajectories interior to
+the homoclinic connection are periodic (see Figure \ref{fig:ppss}), 
+this leads to periodic waves that should travel through the layered 
+medium without changing shape.  We will refer to these waves as stegosoids.  
+Numerical simulations using WENOCLAW show that this is indeed the case.
+The first three subfigures of Figure \ref{fig:stegosoid} show numerically
+integrated waveforms, while the fourth subfigure shows results of using 
+such an integrated waveform as a boundary condition for a time-dependent
+simulation.
+\begin{figure}
+\centering
+\begin{pspicture}(0,0)(4,5)
+  \psline[arrows=<->](0,2)(4,2)
+  \rput[c](4.25,2){{\color{black}{\small{$W$}}}}
+  \psline[arrows=<->](0.5,0)(0.5,4)
+  \rput[c](0.5,4.25){{\color{black}{\small{$W'$}}}}
+  \psline[linecolor=red,arrows=->,linearc=0.8,linewidth=.05](1.0,2.0)(2.5,3.0)(3.15,2.75)(3.5,2.)(3.15,1.25)(2.5,1.0)(1.0,2.0)
+  \pscircle[fillstyle=solid,fillcolor=black,linestyle=dashed](2.5,2){0.1}
+  \pscircle[fillstyle=solid,fillcolor=black,linestyle=dashed](1.0,2){0.1}
+  \pscircle[linecolor=black,linestyle=dashed](2.5,2){0.3}
+  \pscircle[linecolor=black,linestyle=dashed](2.5,2){0.5}
+  \pscircle[linecolor=black,linestyle=dashed](2.5,2){0.7}
+\end{pspicture}
+\caption{Stegosoids in the phase plane. \label{fig:ppss}}
+\end{figure}
+
+\begin{figure}
+\subfigure{\includegraphics[width=2.5in]{figures/stegosoid1.eps}}
+\subfigure{\includegraphics[width=2.5in]{figures/stegosoid2.eps}}
+\subfigure{\includegraphics[width=2.5in]{figures/stegosoid3.eps}}
+\subfigure{\includegraphics[width=2.5in]{figures/stegosoidfv.eps}}
+\caption{Stegosoids of various wavelengths. \label{fig:stegosoid}}
+\end{figure}
+
+I have also begun to answer the important question of whether stegotons
+are stable in higher dimensions.

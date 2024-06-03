@@ -1,0 +1,51 @@
+
+Hi David,
+
+I like the new draft of the paper!
+
+A few comments:
+
+You've dropped the questions Q1 and Q2 from the introduction but still refer
+to them later, e.g. in the first sentence of Sec. 3 and in the Conclusions.
+
+On page 9 I added a definition of LY problem.
+
+On page 10 when talking about Clawpack:  "This lower order accurate solution
+shows significant numerical errors."  I modified this to say what order is
+expected and also moved up the sentence about the order used in Sharpclaw.
+
+Table 1, I fixed the caption to mention Sharpclaw.
+
+Figure 10: can we introduce a symbol for the cases where entropy increased?
+The ylabel on this graph should be $|\Delta \eta / \eta_0|$ with abs value?
+
+Figure 12: would it be clearer to use a contour plot here rather than a
+pcolor plot?  I find this hard to interpret and in particular it's not clear
+if there's a sharp cutoff somewhere.  Presumably it should be at 
+ \log_2(\rho_B) + \log_2(K_B) \approx \log_2(6.25)
+and perhaps we should also plot that line?
+
+At the end of Sec. 3 I think we need to state some conclusions about what is
+seen in these figures.
+
+In Fig. 13 should the xlabel be $Z_B$?  Again there should be abs value in
+the ylabel?   
+
+I'm not quite sure how to interpret this figure.  For each Z there are
+several points plotted, I guess these are for various values of c at that Z?
+Can we label these somehow so it's possible to see how the entropy jump
+varies with c at fixed Z?
+
+On page 18, where you say "(need to show this)", isn't this clear since the
+linear theory applies by definition to sufficiently small amplitude
+perturbations?
+
+On p. 18, "we may expect that the shock will also travel at an effective
+velocity; it is natural to suppose that this velocity will be related to the
+Rankine-Hungoniot shock speed ..."
+It's not clear to me why this is natural to expect?
+
+In the xlabel of Fig 15, do you mean "effective shock speed"?
+
+ - Randy
+

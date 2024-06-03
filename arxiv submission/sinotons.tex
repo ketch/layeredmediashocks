@@ -1,0 +1,73 @@
+We now consider the case of a smoothly varying medium, with
+\begin{subequations}
+\label{eq:sinmat}
+\begin{align}
+\rho(x) = & a + b \sin\left(2\pi \frac{x}{\delta}\right) \\
+K(x) = & a + b \sin\left(2\pi\left(\frac{x}{\delta}+\theta\right)\right)
+\end{align}
+\end{subequations}
+and exponential stress-strain relation.
+We first consider the case $\theta=0$, so that $K(x)=\rho(x)$ and thus
+the linearized sound speed is constant.  Taking $a=5/2$, $b=3/2$, we find solitary
+wave behavior similar to the piecewise constant case, as shown in Figure
+\ref{fig:sinoton}.  It can be shown that the coefficients of the dissipative
+terms in the homogenized equations vanish in this case.
+
+\begin{figure}
+\begin{center}
+\subfigure{\includegraphics[width=3.5in]{figures/sinoton_zoomout.eps}}
+\subfigure{\includegraphics[width=3.5in]{figures/sinoton_closeup.eps}}
+\subfigure{\includegraphics[width=3.5in]{figures/sinoton_params.eps}}
+\caption{Results for the medium \eqref{eq:sinmat} with $\theta=0$. \label{fig:sinoton}}
+\end{center}
+\end{figure}
+
+Next we take $\theta=1/2$, so that the fluctuations in the density and the
+bulk modulus are precisely out of phase (and thus the linearized sound speed 
+varies dramatically).  Again, it can be shown that the coefficients of the 
+dissipative terms in the homogenized equations vanish in this case.  However, the 
+observed behavior (shown in Figure \ref{fig:oop}) is quite different from 
+the previous example.  Now the
+solution evolves in a manner similar to Burgers equation, with the nonlinearity
+dominating.  The dispersion, rather than leading to solitary waves, appears only
+to generate noise-like oscillations.
+
+\begin{figure}
+\begin{center}
+\subfigure{\includegraphics[width=3.5in]{figures/oop.eps}}
+\subfigure{\includegraphics[width=3.5in]{figures/oop_stress.eps}}
+\subfigure{\includegraphics[width=3.5in]{figures/oop_params.eps}}
+\caption{Strain (left) and stress (right) for the medium \eqref{eq:sinmat} with $\theta=1/2$. \label{fig:oop}}
+\end{center}
+\end{figure}
+
+Now we consider the case $theta=1/4$.  In this case, the coefficients
+of the dissipative homogenized terms are nonzero.  Solitary waves are
+observed, but there is a lot of 'junk' between and behind them, and the leading
+one has two peaks.
+
+\begin{figure}
+\begin{center}
+\subfigure{\includegraphics[width=3.5in]{figures/hop.eps}}
+\subfigure{\includegraphics[width=3.5in]{figures/hop_stress.eps}}
+\subfigure{\includegraphics[width=3.5in]{figures/hop_params.eps}}
+\caption{Strain (left) and stress (right) for the medium \eqref{eq:sinmat} with $\theta=1/4$. \label{fig:hop}}
+\end{center}
+\end{figure}
+
+Finally, consider the case $\theta=0$ but with the period of the density
+variation doubled (while the bulk modulus variation remains the same).
+In this case, dispersion seems to dominate and little coherent structure
+remains after even a short time.
+
+\begin{figure}
+\begin{center}
+\subfigure{\includegraphics[width=3.5in]{figures/dp.eps}}
+\subfigure{\includegraphics[width=3.5in]{figures/dp_stress.eps}}
+\subfigure{\includegraphics[width=3.5in]{figures/dp_params.eps}}
+\caption{Strain (left) and stress (right) for the medium \eqref{eq:sinmat} with $\theta=0$ and the period of the density variation equal to twice the period of the bulk modulus variation. \label{fig:dp}}
+\end{center}
+\end{figure}
+
+
+\clearpage

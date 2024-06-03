@@ -1,0 +1,376 @@
+%       SIAMPTEX.STY;  12-11-92;  Paul Duggan, Society for Industrial
+%                                and Applied Mathematics. From
+%                                Ralph Youngen's siamtex.sty
+%                      9-14-94 ; Paul Duggan Revised.
+%       This file may be freely distributed but may not be altered in
+%       any way.
+%
+%       This is a file of macros and definitions for creating an article
+%       for publication in a SIAM journal.
+%
+% Make the @ sign a letter for internal control sequences.
+\catcode`\@=11
+%
+% Report the version number of this package.
+\message{ *** SIAM Plain TeX macro package, version
+   2.1.1, SEPTEMBER-1994 ***}
+%
+%%%
+%%%  FONTS
+%%%
+\font\tenrm=cmr10
+\font\tenbf=cmbx10
+\font\tenit=cmti10 
+\font\tentt=cmtt10
+\font\tensmc=cmcsc10
+\def\tenpoint{%
+   \def\rm{\fam0\tenrm}\def\bf{\fam\bffam\tenbf}%
+   \def\it{\fam\itfam\tenit}\def\smc{\tensmc}\def\tt{\tentt}
+        \textfont0=\tenrm \scriptfont0=\sevenrm
+        \textfont1=\teni \scriptfont1=\seveni
+        \textfont2=\tensy \scriptfont2=\sevensy
+        \textfont3=\tenex \scriptfont3=\tenex
+\baselineskip=12pt\rm}%
+
+\font\ninerm=cmr9
+\font\ninebf=cmbx9
+\font\nineit=cmti9
+\def\ninepoint{%
+   \def\rm{\ninerm}\def\bf{\ninebf}%
+   \def\it{\nineit}\baselineskip=11pt\rm}%
+
+\font\eightrm=cmr8
+\font\eightbf=cmbx8
+\font\eightit=cmti8        
+\font\eighti=cmmi8
+\font\eightsy=cmsy8
+\font\eightsmc=cmcsc10 at 8pt
+\font\eighttt=cmtt8
+   \def\eightpoint{%
+   \def\rm{\fam0\eightrm}\def\bf{\fam\bffam\eightbf}%
+  \def\it{\fam\itfam\eightit}\def\smc{\eightsmc}\def\tt{\eighttt}
+        \textfont0=\eightrm \scriptfont0=\sixrm
+        \textfont1=\eighti \scriptfont1=\sixi
+        \textfont2=\eightsy \scriptfont2=\sixsy
+\textfont3=\tenex \scriptfont3=\tenex
+\baselineskip=10pt\rm}%
+
+\font\sixrm=cmr6
+\font\sixbf=cmbx6
+\font\sixi=cmmi6        
+\font\sixsmc=cmr5
+\font\sixsy=cmsy6
+\def\sixpoint{%
+   \def\rm{\sixrm}\def\bf{\sixbf}%
+   \def\smc{\sixsmc}\baselineskip=8pt\rm}%
+
+\fontdimen13\tensy=2.6pt
+\fontdimen14\tensy=2.6pt
+\fontdimen15\tensy=2.6pt
+\fontdimen16\tensy=1.2pt
+\fontdimen17\tensy=1.2pt
+\fontdimen18\tensy=1.2pt              
+
+\def\rheadfont{\eightpoint\rm} 
+\def\titlefont{\tenpoint\bf}
+\def\authorfont{\eightpoint\smc}
+\def\dedicatefont{\ninepoint\it}
+
+
+%%%
+%%% ROMAN PUNCTUATION 
+%%% (WARNING: may cause incompatibility with psfig)
+%%%
+\def\othersmcolon{;}
+\catcode`\;= \active
+\def;{\relax\ifmmode\othersmcolon 
+           \else\ifdim\fontdimen1\the\font>0pt\/{\rm \othersmcolon}%
+             \else\othersmcolon\fi\fi}
+
+
+%%%  DIMENSIONS
+%%%
+\hsize=31pc
+\vsize=49.5pc
+\topskip 12pt
+\voffset 16.5mm
+\parindent=2em
+
+      
+%%%  TOPMATTER MACROS
+%%%        
+\newif\ifkeywords@
+\newif\ifsubjclass@
+\newif\ifdedicate@
+\newif\ifrecdate@
+\newif\ifoneclass@
+
+\keywords@false
+\subjclass@false
+\dedicate@false
+\recdate@false
+\oneclass@false
+     
+\def\title#1\endtitle{\def\thetitle{\uppercase{#1}}%
+          \def\\{\relax\ }\xdef\rightrh{\uppercase{#1}}}
+
+\def\shorttitle#1{\xdef\rightrh{\uppercase{#1}}}
+
+\let\protect\relax
+
+\def\author#1\endauthor{%
+        \def\and{\hbox{\sixrm AND }}\def\\{\break}
+                              %  prevent \uppercase when typesetting
+        \def\theauthor{\uppercase{#1}}%
+         {%
+           \def\\{\relax\ }% change \\ to be a space in the running head
+           \def\fnmark##1{}% turn address off in the running head
+           \def\and{and }%   "and" is same size as names in running head
+           \def\protect{\noexpand\protect\noexpand}
+           \xdef\leftrh{\expandafter{\uppercase{#1}}}%           
+        }}
+
+\def\shortauthor#1{\def\and{and }\xdef\leftrh{\uppercase{#1}}}
+
+\gdef\fnmark#1{#1}
+\gdef\address#1#2{\makefootnote@{\textfont2=\eightsy #1}{#2\unskip.}}
+\def\journal#1{\def\thejournal{#1}}
+\def\SIMAC{\journal{SIAM J{\smc OURNAL} M{\smc ACRO}}}
+\def\SIAP{\journal{SIAM J. A{\smc PPL.} M{\smc ATH.}}}
+\def\SICOMP{\journal{SIAM J. C{\smc OMPUT.}}}
+\def\SICON{\journal{SIAM J. C{\smc ONTROL} {\smc AND} O{\smc PTIMIZATION}}}
+\def\SIDMA{\journal{SIAM J. D{\smc ISC.} M{\smc ATH.}}}
+\def\SIMA{\journal{SIAM J. M{\smc ATH.} A{\smc NAL.}}}
+\def\SIMAX{\journal{SIAM J. M{\smc ATRIX} A{\smc NAL.} A{\smc PPL.}}}
+\def\SINUM{\journal{SIAM J. N{\smc UMER.} A{\smc NAL.}}}
+\def\SIOPT{\journal{SIAM J. O{\smc PTIMIZATION}}}
+\def\SISC{\journal{SIAM J. S{\smc CI.} C{\smc OMPUT.}}}
+\def\SIREV{\journal{SIAM R{\smc EVIEW}}}
+
+
+\def\copyyear#1{\def\thecopyyear{#1}}
+\copyyear{1989}
+\def\vol#1{\def\thevol{#1}}
+\def\no#1{\def\theno{#1}}
+\def\date#1{\def\thedate{#1}}
+\def\code#1{\def\thecode{#1}}
+\def\dedicate#1{\dedicate@true\def\thededicate{#1}}
+\def\keywords#1\endkeywords{\keywords@true\def\thekeywords{#1}}
+\def\subjclass#1\endsubjclass{\subjclass@true\def\thesubjclass{#1}}
+\def\oneclass{\oneclass@true}
+\long\def\abstract#1{\def\theabstract{#1}}
+
+\def\raggedcenter{\leftskip=0pt plus 1fill \rightskip=0pt plus 1fill}
+
+\def\copyright#1{{\ooalign{\hfil\raise.07ex\hbox{c}\hfil\crcr#1\char"0D}}}
+
+\def\recdate#1#2{\global\recdate@true
+        \gdef\recdate@{#1Received \ignorespaces#2\unskip.}%
+        \makefootnote@{}{\recdate@}}
+                    
+\let\topmatter=\relax
+\def\endtopmatter{%
+        \global\headline={\hss\vtop to \z@ {%
+                \sixpoint\rm\noindent\thejournal \hfill%
+                \rm\copyright{\sevensy}\rm%
+                \ \thecopyyear\ International Press\par
+                \noindent Vol. \thevol , No. \theno , \thedate\hfill\thecode\par
+        \vss}\hss}%                                   
+        \leavevmode\vskip8pt
+        \vbox{\noindent\raggedcenter\let\\=\break\titlefont\thetitle
+            \ifrecdate@*\fi}
+        \vskip6pt
+        \vbox{\noindent\raggedcenter\let\\=\break\authorfont\theauthor}
+        \ifdedicate@
+                \vskip6pt
+                \vbox{\noindent\raggedcenter\let\\=\break\dedicatefont
+                \thededicate}
+        \fi
+        \vskip14pt
+        {\eightpoint{\bf Abstract.\ }\theabstract\par
+        \ifkeywords@
+                \vskip10pt
+                {\bf Key words.} \thekeywords\par
+        \fi
+        \ifsubjclass@
+                \vskip10pt
+                {\bf AMS subject classification\ifoneclass@\else s\fi. }%
+                \thesubjclass\par
+        \fi}
+        \vskip8pt
+        \tenpoint}
+
+
+%%% THEOREM AND OTHER MACROS
+%%%
+\def\heading#1#2{%
+        \vskip6pt{\bf #1.\enspace\ignorespaces#2.\enspace}\ignorespaces}
+
+\def\thm#1{{\smc #1.}\begingroup\it\enspace\ignorespaces}
+\let\lem=\thm
+\let\cor=\thm
+\let\prop=\thm
+\let\dfn=\thm
+
+\def\endthm{\endgroup}
+\let\endlem=\endthm
+\let\endcor=\endthm
+\let\endprop=\endthm
+\let\enddfn=\endthm
+
+\def\prf#1{{\it #1}.\rm\enspace\ignorespaces}
+\let\rem=\prf
+\let\case=\prf
+
+\def\endproof{\vbox{\hrule height0.8pt\hbox{%
+   \vrule height1.3ex width0.8pt\hskip0.8ex
+   \vrule width0.8pt}\hrule height0.8pt
+  }}
+
+
+%%% FORMATTING AND MATH
+%%% 
+%%% NEW ROMAN MATH OPERATORS
+%%%
+\def\const{\mathop{\rm const}\nolimits}
+\def\diag{\mathop{\rm diag}\nolimits}
+\def\grad{\mathop{\rm grad}\nolimits}
+\def\Range{\mathop{\rm Range}\nolimits}
+\def\rank{\mathop{\rm rank}\nolimits}
+\def\supp{\mathop{\rm supp}\nolimits}
+
+%%% Centered displays, with numbering
+%%%
+
+\def\ldisplaylinesno#1{\displ@y\halign{
+  \hbox to\displaywidth{$\@lign\hfil\displaystyle##\hfil$}&
+    \kern-\displaywidth\rlap{$##$}\kern\displaywidth\crcr
+  #1\crcr}}
+
+%%% \meti to be used instead of \item
+%%%
+\def\meti#1{\parindent=2\parindent 
+\par\indent\llap{#1\enspace}\ignorespaces\parindent=.5\parindent}
+\def\metimeti#1{\parindent=2\parindent 
+\par\indent\llap{#1\enspace}\ignorespaces\parindent=.5\parindent}
+
+
+%%% Miscellaneous
+
+%%% REFERENCES
+
+\newdimen\refindent@
+\newdimen\refhangindent@
+\newbox\refbox@
+\setbox\refbox@=\hbox{\eightpoint\rm [GP]}%   Default 2 digits
+\refindent@=\wd\refbox@
+
+\def\resetrefindent#1{%
+        \setbox\refbox@=\hbox{\eightpoint\rm [#1]}%
+        \refindent@=\wd\refbox@}
+
+\def\Refs{%
+        \unskip\vskip2pc
+        \centerline{\eightpoint\rm REFERENCES}%
+        \penalty10000
+        \vskip4pt
+        \penalty10000
+        \refhangindent@=\refindent@
+        \global\advance\refhangindent@ by 2em
+        \global\everypar{\hangindent\refhangindent@}%
+        \parindent=0pt\eightpoint\rm}
+
+\def\XRefs{%
+        \unskip\vskip2pc
+        \centerline{\eightpoint\rm REFERENCES}%
+        \penalty10000
+        \vskip4pt
+        \penalty10000
+        \refhangindent@=\refindent@
+        \global\everypar{\hangindent\refhangindent@}%
+        \parindent=0pt\eightpoint\rm}
+                                      
+\def\sameauthor{\leavevmode\vbox to 1ex{\vskip 0pt plus 100pt
+    \hbox to 3em{\leaders\hrule\hfil}\vskip 0pt plus 300pt}}
+    
+\def\ref#1\\#2\endref{\leavevmode\hbox to \refindent@{\hfil[#1]}\enspace #2\par}
+
+\def\xref\\#1\endref{\leavevmode #1\par}
+
+%%% OUTPUT
+
+\global\footline={\hss\eightpoint\rm\folio\hss}% first page
+\output{\plainoutput}
+\def\plainoutput{\shipout\vbox{\makeheadline\pagebody\makefootline}%
+  \advancepageno
+  \ifnum\pageno>1
+        \global\footline={\hfill}%
+  \fi     
+  \ifodd\pageno
+        \global\headline={\hss\rightrh\hss{\tenpoint\rm\folio}}%
+  \else
+        \global\headline={\hskip-8pt{\tenpoint\rm\folio}\hss\leftrh\hss}%
+  \fi
+  \ifnum\outputpenalty>-\@MM \else\dosupereject\fi}
+\def\pagebody{\vbox to\vsize{\boxmaxdepth\maxdepth \pagecontents}}
+\def\makeheadline{\vbox to\z@{\vskip-22.5\p@
+  \line{\vbox to8.5\p@{}\rheadfont\the\headline}\vss}%
+    \nointerlineskip}
+\def\makefootline{\baselineskip24\p@\vskip-8\p@\line{\the\footline}}
+\def\dosupereject{\ifnum\insertpenalties>\z@ % something is being held over
+  \line{}\kern-\topskip\nobreak\vfill\supereject\fi}
+
+\def\relaxnext@{\let\next\relax}
+\def\footmarkform@#1{\ifmmode {}^{#1}\else$^{#1}$\fi }
+\let\thefootnotemark\footmarkform@
+\def\makefootnote@#1#2{\insert\footins
+        {\interlinepenalty\interfootnotelinepenalty
+        \eightpoint \splittopskip=\ht\strutbox
+      \splitmaxdepth=\dp\strutbox
+        \floatingpenalty=\@MM 
+   \leftskip=\z@ \rightskip=\z@
+        \spaceskip=\z@ \xspaceskip=\z@
+        \leavevmode{#1}\footstrut\ignorespaces#2\unskip
+        \lower\dp\strutbox\vbox to\dp\strutbox{}}}
+\newcount\footmarkcount@
+ \footmarkcount@=\z@                    % Initialization
+\def\footnotemark{\let\@sf=\empty \relaxnext@
+        \ifhmode \edef\@sf{\spacefactor=\the\spacefactor}\/\fi
+        \def\next@{\ifx[\next \let\next=\nextii@ \else
+                \ifx"\next \let\next=\nextiii@ \else
+                        \let\next=\nextiv@ \fi\fi\next}%
+        \def\nextii@[##1]{\footmarkform@{##1}\@sf}%
+        \def\nextiii@"##1"{{##1}\@sf}%
+        \def\nextiv@{\global\advance\footmarkcount@\@ne
+                \footmarkform@{\number\footmarkcount@}\@sf}%
+        \futurelet\next\next@}
+\def\footnotetext{\relaxnext@
+        \def\next@{\ifx[\next \let\next=\nextii@ \else
+                \ifx"\next \let\next=\nextiii@ \else
+                        \let\next=\nextiv@ \fi\fi\next}%
+        \def\nextii@[##1]##2{\makefootnote@{\footmarkform@{##1}}{##2}}%
+        \def\nextiii@"##1"##2{\makefootnote@{##1}{##2}}% 
+        \def\nextiv@##1{\makefootnote@{\footmarkform@{%
+                        \number\footmarkcount@}}{##1}}%
+        \futurelet\next\next@}
+\def\footnote{\let\@sf=\empty \relaxnext@
+        \ifhmode \edef\@sf{\spacefactor\the\spacefactor}\/\fi
+        \def\next@{\ifx[\next \let\next=\nextii@ \else
+                \ifx"\next \let\next=\nextiii@ \else
+                        \let\next=\nextiv@ \fi\fi\next}%
+        \def\nextii@[##1]##2{\footnotemark[##1]\footnotetext[##1]{##2}}%
+        \def\nextiii@"##1"##2{\footnotemark"##1"\footnotetext"##1"{##2}}%
+        \def\nextiv@##1{\footnotemark\footnotetext{##1}}%
+        \futurelet\next\next@}
+\def\adjustfootnotemark#1{\advance\footmarkcount@#1\relax}
+
+\skip\footins=18\p@ plus6\p@ minus6\p@
+
+\def\footnoterule{\kern -4\p@\hrule width 3pc \kern 3.6\p@ } % rule = .4 pt high
+
+
+
+%       Turn off @ as being a letter.
+%
+\catcode`\@=12
+

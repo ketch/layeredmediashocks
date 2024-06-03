@@ -1,0 +1,67 @@
+\begin{thebibliography}{10}
+
+\bibitem{alghamdipetclaw}
+{\sc A.~Alghamdi, A.~Ahmadia, D.~Ketcheson, M.~Knepley, K.~Mandli, and
+  L.~Dalcin}, {\em PetClaw: A Scalable Parallel Nonlinear Wave Propagation
+  Solver for Python}, ACM, 2011.
+\newblock To appear in proceedings of HPC 2011.
+
+\bibitem{El2005}
+{\sc G.~a. El}, {\em {Resolution of a shock in hyperbolic systems modified by
+  weak dispersion.}}, Chaos (Woodbury, N.Y.), 15 (2005), p.~37103.
+
+\bibitem{ketcheson2008}
+{\sc D.~I. Ketcheson}, {\em {Highly Efficient Strong Stability Preserving
+  Runge-Kutta Methods with Low-Storage Implementations}}, SIAM Journal on
+  Scientific Computing, 30 (2008), pp.~2113--2136.
+
+\bibitem{sharpclaw}
+{\sc D.~I. Ketcheson}, {\em {SharpClaw software}}, 2011.
+
+\bibitem{ketcheson2006}
+{\sc D.~I. Ketcheson and R.~J. LeVeque}, {\em {WENOCLAW: A higher order wave
+  propagation method}}, in Hyperbolic Problems: Theory, Numerics, Applications:
+  Proceedings of the Eleventh International Conference on Hyperbolic Problems,
+  Berlin, 2008, p.~1123.
+
+\bibitem{ketcheson2011}
+{\sc D.~I. Ketcheson, M.~Parsani, and R.~J. LeVeque}, {\em {High-order wave
+  propagation algorithms for general hyperbolic systems}}.
+\newblock 2011.
+
+\bibitem{leveque1997}
+{\sc R.~J. LeVeque}, {\em {Wave Propagation Algorithms for Multidimensional
+  Hyperbolic Systems}}, Journal of Computational Physics, 131 (1997),
+  pp.~327--353.
+
+\bibitem{rjl:fvmhp}
+{\sc R.~J. LeVeque}, {\em Finite Volume Methods for Hyperbolic Problems},
+  Cambridge University Press, 2002.
+
+\bibitem{clawpack45}
+{\sc R.~J. LeVeque and M.~J. Berger}, {\em {Clawpack Software version 4.5}},
+  2011.
+
+\bibitem{leveque2003}
+{\sc R.~J. LeVeque and D.~H. Yong}, {\em {Solitary waves in layered nonlinear
+  media}}, SIAM Journal of Applied Mathematics, 63 (2003), pp.~1539--1560.
+
+\bibitem{Rubin2009}
+{\sc M.~Rubin, P.~Rosenau, and O.~Gottlieb}, {\em {Continuum model of
+  dispersion caused by an inherent material characteristic length}}, Journal of
+  Applied Physics, 77 (2009), pp.~4054--4063.
+
+\bibitem{santosa1991}
+{\sc F.~Santosa and W.~Symes}, {\em {A dispersive effective medium for wave
+  propagation in periodic composites}}, SIAM Journal of Applied Mathematics, 51
+  (1991), pp.~984--1005.
+
+\bibitem{shu2009}
+{\sc C.-W. Shu}, {\em {High Order Weighted Essentially Nonoscillatory Schemes
+  for Convection Dominated Problems}}, SIAM Review, 51 (2009), p.~82.
+
+\bibitem{simpson2010}
+{\sc G.~Simpson and M.~I. Weinstein}, {\em {Coherent Structures and Carrier
+  Shocks in the Nonlinear Periodic Maxwell Equations}},  (2010).
+
+\end{thebibliography}

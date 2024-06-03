@@ -1,0 +1,213 @@
+In order to study the stegotons in terms of effective medium theory,
+we can derive a system 
+of effective or homogenized equations that describe the
+evolution of (spatially) slowly varying waves \cite{leveque2003}.  
+This is done by first changing
+variables to write \eqref{nel_pde} as a pair of evolution
+equations for $\sigma$ and $u$, which are continuous even
+across material interfaces:
+\begin{subequations}
+\begin{align} \label{nel_inv}
+\sigma_t - K(x)G(\sigma)u_x & = 0 \\
+\rho(x) u_t - \sigma_x & = 0.
+\end{align}
+\end{subequations}
+Here $G(\sigma)=\sigma_\epsilon(\epsilon,x)/K(x)$.  In the 
+case of the exponential stress-strain relationship 
+\eqref{expstress}, $G(\sigma)=\sigma+1$.
+
+By assuming that the solution quantities $u, \sigma$ vary slowly
+on the scale of the variation in the medium, LeVeque \& Yong derived
+effective homogenized equations for this system.    The essential idea is to suppose
+that the variation of $u$ and $\sigma$ within a single period is
+much smaller than the large-scale variation.  Taking the ratio
+of these two as a small parameter $\delta$, the following
+homogenized effective equations are obtained:
+\begin{align}
+u_t & = \frac{1}{\rhomean}\left(\sigma_x-\delta C_{21}\sigma_{xx} 
+              - \delta^2 C_{22}\sigma_{xxx} \cdots \right) \\
+\sigma_t & = \Kmean\left(G(\sigma)u_x - \delta C_{11}G(\sigma)u_{xx} 
+              - \delta^2 \left(C_{12}G(\sigma)u_{xxx} 
+                    + C_{13} G'(\sigma)\sigma_x u_{xx} 
+                    + C_{13} \frac{1}{2} G''(\sigma)\sigma_x^2 u_x\right)
+                    + \cdots \right)
+\end{align}
+Here the quantities in brackets are spatial averages:
+\begin{align}
+\rhomean & = \alpha \rho_A + (1-\alpha) \rho_B &
+\Kmean   & = \left( \frac{\alpha}{K_A}+\frac{1-\alpha}{K_B} \right)^{-1}
+\end{align}
+and the constants $C_{ij}$ are functionals of the material parameter
+functions $\rho(x), K(x)$.  
+For the case of a piecewise-constant bilayered medium,
+the coefficients in \eqref{eq:stego-homog} are given by
+(note that the equation for $C_{13}$ contains a small typo in
+\cite{leveque2003}):
+\begin{subequations} \label{eq:stego-coeffs}
+\begin{align}
+C_{11} & = C_{21}=0 \\
+C_{12} & = -\frac{1}{12}\alpha^2(1-\alpha)^2 
+            \frac{(\rho_A-\rho_B)(Z_A^2-Z_B^2)}{K_A K_B\Kinvmean \rhomean^2} \\
+C_{22} & = -\frac{1}{12}\alpha^2(1-\alpha)^2 
+            \frac{(K_A-K_B)(Z_A^2-Z_B^2)}{K_A^2 K_B^2(\Kinvmean)^2 \rhomean} \\
+C_{13} & = -\frac{1}{12}\alpha^2(1-\alpha)^2 
+            \frac{\rhomean^2(K_A-K_B)^2+(Z_A^2-Z_B^2)^2}
+                 {K_A^2 K_B^2 (\Kinvmean)^2 \rhomean^2}.
+\end{align}
+\end{subequations}
+For any piecewise constant medium (as well
+as some other media we will consider), it turns out that the coefficients
+$C_{11}, C_{21}$, and all other coefficients of even-derivative terms,
+vanish.
+
+In the rest of this section, we consider a reduced system obtained
+by setting also $C_{22}=C_{13}=0$, and using the exponential
+stress relation \eqref{expstress}:
+\begin{subequations} \label{homsimp}
+\begin{align}
+\rhomean u_t - \sigma_x & = 0 \\
+\sigma_t - \Kmean(\sigma+1)u_x & = - C\Kmean (\sigma+1)u_{xxx}.
+\end{align}
+\end{subequations}
+Here $C=\delta^2 C_{12}$.
+Observe that the terms on the left correspond to the original equations with 
+homogenized coefficients.  Even this system, which involves just one additional
+term, supports solitary waves.  To see this, we assume a traveling wave 
+solution with velocity $\lambda$:
+\begin{align*}
+u(x,t) = & U(x-\lambda t) & \sigma(x,t)+1 = & W(x-\lambda t).
+\end{align*}
+Substituting the above into (\ref{homsimp}) gives
+\begin{subequations}
+\begin{align*}
+-\lambda W' & = \Kmean (WU'-CWU''') \\
+-\rhomean \lambda  U' & = W'.
+\end{align*}
+\end{subequations}
+Using the second equation we can eliminate $U$ in the first to obtain
+\begin{align*}
+W' & = \frac{\Kmean }{\rhomean \lambda^2}(WW'-CWW''')
+\end{align*}
+%Since
+%\begin{subequations}
+%\begin{align}
+%WW' & = \left(\frac{1}{2}W^2\right)' \\
+%WW''' & = (WW'')' - W'W'' = \left(WW''-\frac{1}{2}W'^2\right)',
+%\end{align}
+%\end{subequations}
+Integration yields 
+$$
+W = M^2 \left( \frac{1}{2}W^2 - C\left(WW''-\frac{1}{2}W'^2\right) \right) + \gamma
+$$
+Here we have defined $M = \frac{\lambda}{\cmean}$, the Mach number of the 
+traveling wave relative to the homogenized sound speed for small-amplitude
+waves.
+The constant of integration $\gamma$ is determined by the physical boundary
+conditions at $\infty$: $W\rightarrow 1, W'\rightarrow 0$.  This yields
+$ \gamma = 1-\frac{1}{2M^2}$.
+Rearranging (and making the physically justified assumption $W\ne0$), we have
+$$
+W'' = \frac{W'^2}{2W} + \frac{W}{2C} + \frac{1}{C} \left(\frac{2M^2- 1}{2W}-1\right).
+$$
+This can be rewritten as a first order system by setting $w_1=W,w_2=W'$:
+\begin{subequations}
+\label{odes}
+\begin{align}
+w_1' & = w_2 \\
+w_2' & = \frac{w_2^2}{2w_1} + \frac{w_1}{2C} - \frac{M^2}{C} \left(\frac{2M^2- 1}{2w_1}-1\right).
+\end{align}
+\end{subequations}
+Rewriting this as a first-order system, we find that it has equilibria at
+at $(W,W')=(1,0)$ and $(2M^2-1,0)$.
+%The Jacobian of system (\ref{odes}) is
+%\begin{align}
+%J & = \left( \begin{array}{cc}
+%0 & 1 \\ - \frac{w_2^2}{2w_1^2} + \frac{1}{2C} - \frac{2M^2-1}{2 Cw_1^2} & \frac{w_2}{w_1}
+%\end{array} \right)
+%\end{align}
+The nature of these equilibrium points
+depends on the value of $M$.  If $M>1$, then
+one equilibrium point, which corresponds to the physical boundary conditions
+at infinity, is a saddle, while the other is a center.  The system thus
+has a homoclinic connection, giving rise to solitary waves.  If $M<1$,
+the saddle point becomes a center, and vice versa.  In this case,
+the saddle point corresponds to unphysical boundary conditions (the
+corresponding solitary wave would have an infinite amount of energy),
+and no stegotons are observed.  The nature of the phase plane for the
+two cases is shown in Figure \ref{fig:pptopo}.
+
+\begin{figure}
+\begin{pspicture}(0,0)(4,5)
+  \rput[c](2.5,4.5){$M>1$}
+  \psline[arrows=<->](0,2)(4,2)
+  \rput[c](4.25,2){{\color{black}{\small{$W$}}}}
+  \psline[arrows=<->](0.5,0)(0.5,4)
+  \rput[c](0.5,4.25){{\color{black}{\small{$W'$}}}}
+  \pscircle[fillstyle=solid,fillcolor=black,linestyle=dashed](2.75,2){0.1}
+  \pscircle[fillstyle=solid,fillcolor=black,linestyle=dashed](1.0,2){0.1}
+  \psline[linecolor=red,arrows=->,linearc=0.8,linewidth=.05](1.0,2.0)(2.5,3.0)(3.15,2.75)(3.5,2.)(3.15,1.25)(2.5,1.0)(1.0,2.0)
+  \rput[c](1.0,1.5){(1,0)}
+  \rput[c](2.7,1.5){($2M^2-1$,0)}
+\end{pspicture}
+\hspace{2cm}
+\begin{pspicture}(0,0)(4,5)
+  \rput[c](2.5,4.5){$M<1$}
+  \psline[arrows=<->](0,2)(4,2)
+  \rput[c](4.25,2){{\color{black}{\small{$W$}}}}
+  \psline[arrows=<->](0.5,0)(0.5,4)
+  \rput[c](0.5,4.25){{\color{black}{\small{$W'$}}}}
+  \pscircle[fillstyle=solid,fillcolor=black,linestyle=dashed](2.75,2){0.1}
+  \pscircle[fillstyle=solid,fillcolor=black,linestyle=dashed](1.0,2){0.1}
+  \psline[linecolor=red,arrows=->,linearc=0.8,linewidth=.05](1.0,2.0)(2.5,3.0)(3.15,2.75)(3.5,2.)(3.15,1.25)(2.5,1.0)(1.0,2.0)
+  \rput[c](2.7,1.5){(1,0)}
+  \rput[c](1.0,1.5){($2M^2-1$,0)}
+\end{pspicture}
+\caption{Phase plane topology for stationary waves. \label{fig:pptopo}}
+\end{figure}
+
+Although solutions of this model homogenized system differ in details
+from solutions of the first-order variable-coefficient system, the
+simple model system reproduces key qualitative elements of the full system:
+\begin{itemize}
+  \item Existence of solitary wave solutions
+  \item Solitary waves travel faster than the homogenized linear sound speed
+\end{itemize}
+%\subsection{Periodic solutions}
+%By integrating higher-order versions of the homogenized equations
+%(starting from a point very near the saddle), it is possible to 
+%reproduce the shape and the amplitude-velocity relation of the stegotons as
+%well.  My results from this agree very well with those of \cite{leveque2003}.
+%A more interesting wave results from using a starting point well
+%inside the homoclinic connection.  Since trajectories interior to
+%the homoclinic connection are periodic (see Figure \ref{fig:ppss}), 
+%this leads to periodic waves that should travel through the layered 
+%medium without changing shape.  We will refer to these waves as stegosoids.  
+%Numerical simulations using WENOCLAW show that this is indeed the case.
+%The first three subfigures of Figure \ref{fig:stegosoid} show numerically
+%integrated waveforms, while the fourth subfigure shows results of using 
+%such an integrated waveform as a boundary condition for a time-dependent
+%simulation.
+%\begin{figure}
+%\centering
+%\begin{pspicture}(0,0)(4,5)
+%  \psline[arrows=<->](0,2)(4,2)
+%  \rput[c](4.25,2){{\color{black}{\small{$W$}}}}
+%  \psline[arrows=<->](0.5,0)(0.5,4)
+%  \rput[c](0.5,4.25){{\color{black}{\small{$W'$}}}}
+%  \psline[linecolor=red,arrows=->,linearc=0.8,linewidth=.05](1.0,2.0)(2.5,3.0)(3.15,2.75)(3.5,2.)(3.15,1.25)(2.5,1.0)(1.0,2.0)
+%  \pscircle[fillstyle=solid,fillcolor=black,linestyle=dashed](2.5,2){0.1}
+%  \pscircle[fillstyle=solid,fillcolor=black,linestyle=dashed](1.0,2){0.1}
+%  \pscircle[linecolor=black,linestyle=dashed](2.5,2){0.3}
+%  \pscircle[linecolor=black,linestyle=dashed](2.5,2){0.5}
+%  \pscircle[linecolor=black,linestyle=dashed](2.5,2){0.7}
+%\end{pspicture}
+%\caption{Stegosoids in the phase plane. \label{fig:ppss}}
+%\end{figure}
+%
+%\begin{figure}
+%\subfigure{\includegraphics[width=2.5in]{figures/stegosoid1.eps}}
+%\subfigure{\includegraphics[width=2.5in]{figures/stegosoid2.eps}}
+%\subfigure{\includegraphics[width=2.5in]{figures/stegosoid3.eps}}
+%\subfigure{\includegraphics[width=2.5in]{figures/stegosoidfv.eps}}
+%\caption{Stegosoids of various wavelengths. \label{fig:stegosoid}}
+%\end{figure}

@@ -1,0 +1,57 @@
+This is BibTeX, Version 0.99c (TeX Live 2009)
+The top-level auxiliary file: stego.aux
+The style file: siam.bst
+Database file #1: stego.bib
+Repeated entry---line 3764 of file stego.bib
+ : @article{shu2009
+ :                 ,
+I'm skipping whatever remains of this entry
+Warning--empty chapter and pages in alghamdipetclaw
+Warning--empty note in ketcheson2011
+Warning--empty journal in simpson2010
+"" can't start a style-file command---line 1039 of file siam.bst
+ : 
+ : 
+(Error may have been on previous line)
+You've used 14 entries,
+            2030 wiz_defined-function locations,
+            578 strings with 5817 characters,
+and the built_in function-call counts, 4501 in all, are:
+= -- 428
+> -- 176
+< -- 0
++ -- 70
+- -- 56
+* -- 322
+:= -- 691
+add.period$ -- 16
+call.type$ -- 14
+change.case$ -- 68
+chr.to.int$ -- 0
+cite$ -- 17
+duplicate$ -- 224
+empty$ -- 351
+format.name$ -- 56
+if$ -- 968
+int.to.chr$ -- 0
+int.to.str$ -- 14
+missing$ -- 13
+newline$ -- 47
+num.names$ -- 28
+pop$ -- 78
+preamble$ -- 1
+purify$ -- 56
+quote$ -- 0
+skip$ -- 193
+stack$ -- 0
+substring$ -- 279
+swap$ -- 96
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 52
+warning$ -- 3
+while$ -- 46
+width$ -- 16
+write$ -- 122
+(There were 2 error messages)
